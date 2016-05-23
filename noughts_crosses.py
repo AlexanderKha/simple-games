@@ -82,7 +82,7 @@ class GameBoard():
 
         return None
 
-if __name__ == '__main__':
+def play_game():
     # starts a game of noughts and crosses
     print """
     Let's play noughts and crosses!
@@ -113,8 +113,8 @@ if __name__ == '__main__':
         move = raw_input("> ")
         print "\n"
 
-        input_row, space, input_col = move
         try:
+            input_row, space, input_col = move
             row = int(input_row)
             col = int(input_col)
             if gb.play_move(current_player, row, col):
@@ -133,3 +133,6 @@ if __name__ == '__main__':
         print "Gameover! The winner is player %d!" % gb.winner
     else:
         print "Gameover! It is a draw!"
+
+if __name__ == '__main__':
+    play_game()

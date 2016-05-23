@@ -1,4 +1,5 @@
 import unittest
+import noughts_crosses
 from noughts_crosses import GameBoard
 from StringIO import StringIO
 
@@ -19,6 +20,13 @@ class NoughtsCrossesGame(unittest.TestCase):
        output = get_gameboard_display(gameboard)
        self.assertEqual(output, expected_gameboard)
 
+       # John accidentally enters wrong input at the prompt
+       # by doing so he hits enter and inputs an empty command.
+       gameboard.play_move(0, "", "")
+       expected_gameboard = " | | \n-----\n | | \n-----\n | | \n"
+       output = get_gameboard_display(gameboard)
+       self.assertEqual(output, expected_gameboard)
+       
        # John, the noughts player is invited to 
        # provide his choice. He choose the top
        # left corner by providing input 0 0
@@ -27,6 +35,15 @@ class NoughtsCrossesGame(unittest.TestCase):
        output = get_gameboard_display(gameboard)
        self.assertEqual(output, expected_gameboard)
 
+
+       # Mary accidentally hits the enter button leading
+       # to a no input for her move.
+       gameboard.play_move(1, "", "")
+       expected_gameboard = "O| | \n-----\n | | \n-----\n | | \n"
+       output = get_gameboard_display(gameboard)
+       self.assertEqual(output, expected_gameboard)
+           
+       
        # Mary believes the key to noughts and crosses
        # success is to secure the middle of the board
        # and places her cross in the middle providing
@@ -101,6 +118,34 @@ class NoughtsCrossesBoard(unittest.TestCase):
         gameboard.play_move(1, 0, 1)
         gameboard.play_move(1, 0, 2)
         self.assertEqual(gameboard.winner, 1)
+        
+    def test_legal_moves(self):
+        gameboard = GameBoard()
+        
+        illegal_move = gameboard.play_move(0, 9, 9)
+        self.assertEqual(illegal_move, False)
+        
+        illegal_move = gameboard.play_move(1, 9, 9)
+        self.assertEqual(illegal_move,  False)
+        
+        illegal_move = gameboard.play_move(0, "", "")
+        self.assertEqual(illegal_move, False)
+        
+        illegal_move = gameboard.play_move(1, "", "")
+        self.assertEqual(illegal_move, False)
+        
 
+    # Test the user input of an actual game
+    # Need to investigate how to simulate user input
+    # and how to check / test actual printed statements
+    # i.e. the output
+    #
+    # unittest mock and @patch may be a lead
+    
+# class NoughtsCrossesBoardUserInput(unittest.TestCase):
+#   def test_userinput_game(self):
+#        noughts_crosses.play_game()
+   
+    
 if __name__ == '__main__':
     unittest.main()
