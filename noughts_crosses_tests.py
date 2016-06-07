@@ -8,9 +8,153 @@ def get_gameboard_display(game_board):
     game_board.display(out=out)
     return out.getvalue()
 
-# TODO(alex): Add three more test cases. Test
-# edge cases
-class NoughtsCrossesGame(unittest.TestCase):
+''''''''''''''''''''''''''''''''''''''
+'                                    '
+' User Story 1 - Draw Game Scenario  '
+'                                    '
+'             O | X | O              '
+'             O | X | X              '
+'             X | O | O              '
+'                                    '
+''''''''''''''''''''''''''''''''''''''
+
+# Tom & Jerry loads the Noughts and Crosses web page.
+
+# He is greeted by a noughts and crosses board with a
+# window on the right telling the rules of the game.
+
+# The game prompts player one to make a move in which
+# Tom marks the top left corner. The website responds by
+# having the board presenting a “O”.
+
+# The game now prompts player two to make a move in which
+# Jerry marks the middle top. The website responds by having
+# the board presenting a “X” in that position
+
+# Tom feeling cheeky tries to place a move on top of Jerry’s
+# move in the middle top. The website responds by notifying
+# Jerry that the move is illegal and to try again. Feeling
+# down Tom Marks the bottom right corner instead. Where the
+# website responds with a “O” marking.
+
+# Having no choice Jerry marks the middle box in order to
+# prevent Tom from winning but to also set himself up.
+
+# Tom counters by marking the bottom middle to prevent Jerry
+# from winning whilst also setting himself up to win.
+
+# Jerry having no choice is forced to counter by marking
+# the bottom left box with a “X”.
+
+# Tom counters with the top right corner to prevent Jerry from winning.
+
+# Likewise Jerry marks the middle right realising the game is leading to a draw
+
+# Tom marks the final mark with on the middle left box with a “O” where the
+# game has now stated the sad obvious outcome. The game is a draw.
+
+
+
+''''''''''''''''''''''''''''''''''''''
+'                                    '
+' User Story 2 - Win Game Scenario   '
+'                                    '
+'             O |   | X              '
+'               | X |                '
+'             O | O | O              '
+'                                    '
+''''''''''''''''''''''''''''''''''''''
+
+# Tom & Jerry loads the Noughts and Crosses Web Page
+
+# They are greeted by a noughts and crosses board with a
+# window on the right telling the rules of the game.
+
+# The game prompts player one to make a move.
+# Tom being player one marks the top left corner.
+# The website responds with a "O" marking in the corresponding
+# corner.
+
+# Jerry being player two marks the top right of the grid.
+# The website responds by updating the grid with a "X" in the
+# top right corner.
+
+# Tom feeling cunning, marks the bottom right corner to set up
+# a diagonal move.
+
+# Jerry forced to prevent Tom from winning marks the middle grid.
+
+# Tom sets up the final blow as well as preventing Jerry from
+# winning by marking the bottom left.
+
+# Jerry in dispair realises regardless of what move he makes,
+# he has lost the game. So he hesitantly clicks and selects the
+# middle left to prolong the game.
+
+# Tom cheerfully picks the bottom middle to complete 3 "0" in a
+# row. Where the website announces player one as the winner
+
+
+
+''''''''''''''''''''''''''''''''''''''
+'                                    '
+' User Story 3 - Lose Game Scenario  '
+'                                    '
+'             O | O | X              '
+'               | O | O              '
+'             X | X | X              '
+'                                    '                                  '
+''''''''''''''''''''''''''''''''''''''
+
+# Tom & Jerry loads the Noughts and Crosses Web Page
+
+# They are greeted by a noughts and crosses board with a
+# window on the right telling the rules of the game.
+
+# The game prompts player one to make a move.
+# Tom being player one marks the top middle if the board.
+# The website responds with a "O" marking in the corresponding
+# section.
+
+# Jerry being player two decides to mark the bottom left of the
+# grid. The website responds by updating the grid with a "X" in the
+# bottom left corner.
+
+# Tom wanting a quick game, marks the top left corner to set up
+# a straight move.
+
+# Jerry feels forced to prevent Tom from winning and marks the
+# top right.
+
+# Tom sees that Jerry by preventing him from winning has set up a
+# move for the middle. As a result Tom marks the middle of the board.
+
+# Jerry in his haste mistakenly doesn't prevent Jerry's setup down
+# the middle vertical and picks the bottom right corner. As a result
+# he is eagerly anticipating Tom's move.
+
+# Tom too focused on seeing Jerry's setup for a double win doesn't
+# realise that he has a winning move down the middle. Instead he
+# rushes to stop Jerry from making a move by selecting the middle right.
+
+# Jerry relieved, selects the middle bottom to win the game by
+# creating a straight on the bottom. The website announces player two
+# as the winner.
+
+
+
+''''''''''''''''''''''''''''''''''''''
+'                                    '
+' User Story 4 - Page Refresh        '
+' Game Scenario                      '
+'                                    '
+''''''''''''''''''''''''''''''''''''''
+
+
+
+# Original Functional Tests for testing console version
+# of Noughts and Crosses
+class NoughtsCrossesGameConsoleVersion(unittest.TestCase):
    def test_play_game(self):
        # John (player 0) and Mary (player 1) decided they 
        # might play a game of noughts and crosses the
